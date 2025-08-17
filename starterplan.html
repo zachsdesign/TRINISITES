@@ -1,3 +1,5 @@
+<body>
+
 <div id="paypal-button-container-P-96221043RU8671346NCQN4MA"></div>
 <script src="https://www.paypal.com/sdk/js?client-id=ATF7RxkMtKknoVdssp2x4sHLMa_QJGTr0U5SueOHVG7wh8SfC9T_tFkkpTO97pDd5g_GYM4ERaY5QMa0&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
 <script>
@@ -19,3 +21,20 @@
       }
   }).render('#paypal-button-container-P-96221043RU8671346NCQN4MA'); // Renders the PayPal button
 </script>
+</body>
+
+<style>
+    body {
+      display: flex;               /* enables flexbox */
+      justify-content: center;     /* centers horizontally */
+      align-items: center;         /* centers vertically */
+      height: 100vh;               /* full screen height */
+      margin: 0;                   /* remove default spacing */
+      font-size: 1.5rem;           /* makes text larger */
+      text-align: center;          /* centers text inside */
+    }
+    /* sets a fixed width */
+    #paypal-button-container-P-96221043RU8671346NCQN4MA {
+      width: 300px;
+    }
+  </style>
