@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trini Sites Landing Page</title>
+  <style> 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #000;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Global background canvas */
+    #bgCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: #fff;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header img {
+      max-width: 380px;
+      height: auto;
+      margin-bottom: 0px;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: bold;
+      background: linear-gradient(to right, #000, #00c853);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    /* Tagline styling */
+   /* Tagline styling */
+.tagline {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;      /* stack text then logo */
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.tagline-logo {
+  width: 320px;                 /* slightly larger looks nice under text */
+  height: auto;
+  margin-top: 50px;
+
+}
+
+.tagline h2 {
+  font-size: 2.3rem;
+  font-weight: normal;
+  color: #000;
+  text-align: center;
+    margin-top: 50px;
+}
+
+.tagline .fixed { font-weight: bold; color: #000; }
+.tagline .changing {
+  font-weight: bold;
+  color: #00c853;
+  border-right: 2px solid #00c853;
+  padding: 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+
+    section {
+      text-align: center;
+      padding: 60px 20px;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    section h2 {
+      font-size: 2.4rem;
+      margin-bottom: 15px;
+      background: linear-gradient(to right, #000, #00c853);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    section p {
+      max-width: 800px;
+      margin: 0 auto 30px auto;
+      font-size: 1.2rem;
+      line-height: 1.7;
+    }
+
+    video {
+      width: 80%;
+      max-width: 700px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+    }
+
+    a, button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 24px;
+      background: linear-gradient(to right, #000, #00c853);
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: transform 0.2s ease;
+    }
+
+    a:hover, button:hover {
+      transform: scale(1.05);
+    }
+
+    /* Pricing Section with its own background animation */
+    .pricing {
+      position: relative;
+      overflow: hidden;
+      padding: 80px 20px;
+      background: transparent;
+    }
+
+    .pricingCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .pricing h2, .plans {
+      position: relative;
+      z-index: 1;
+    }
+
+    .pricing h2 {
+      margin-bottom: 40px;
+      font-size: 2.6rem;
+    }
+
+    .pricing .plans {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .plan {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      padding: 30px;
+      width: 320px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .plan:hover {
+      transform: translateY(-8px);
+    }
+
+    .plan h3 {
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+      background: linear-gradient(to right, #000, #00c853);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .plan ul {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .plan ul li {
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      background: #fff;
+    }
+
+    /* Fade animation */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+ 
+  <!-- Global Background Canvas -->
+  <canvas id="bgCanvas"></canvas>
+
+ <header class="fade-section">
+  <img src="TRINISITES.png" alt="TriniSites Logo">
+  <h1>Turn your viewers into buyers</h1>
+
+  <!-- Tagline with typewriter text, logo below -->
+  <div class="tagline">
+    <h2>
+      <span class="fixed">Get</span>
+      <span class="changing"></span>
+      <span class="fixed">on WhatsApp</span>
+    </h2>
+    <img src="whatsform.svg" alt="WhatsForm" class="tagline-logo">
+  </div>
+</header>
+
+
+  <section class="fade-section">
+    <h2>Demo</h2>
+    <video autoplay muted loop playsinline>
+      <source src="demo.mp4" type="video/mp4">
+    </video>
+    <br>
+    <a href="https://ceramiccoating.site/" target="_blank">Test Demo Site</a>
+  </section>
+
+  <section class="pricing fade-section" id="pricing">
+    <!-- Pricing Background Canvas -->
+    <canvas class="pricingCanvas"></canvas>
+
+    <h2>7 day FREE TRIAL <br><small style="font-size:0.8rem;">USD</small></h2>
+    <div class="plans">
+      <div class="plan">
+        <h3>Starter Plan</h3>
+        <ul>
+          <li>Customizable WhatsApp form</li>
+          <li>Custom link (form.trinisites.com/YourBusiness)</li>
+          <li>Services & Booking calendar</li>
+          <li>Products & Your logo</li>
+          <li>Payment portal (Cash / PayPal)</li>
+        </ul>
+        <p><strong>$29 / month</strong></p>
+        <a href="starterplan.html">Get Started</a>
+      </div>
+
+      <div class="plan">
+        <h3>Business Plan</h3>
+        <ul>
+          <li>Everything in Starter Plan</li>
+          <li>Domain name (yourbusiness.com)</li>
+          <li>Designed one-page website</li>
+          <li>Unlimited hosting & backups</li>
+          <li>Google Maps & Social Media links</li>
+          <li>About info section</li>
+        </ul>
+        <p><strong>$39 / month</strong></p>
+        <a href="businessplan.html">Get Started</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Copyright © <span id="year"></span> TriniSites</p>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Scroll Fade
+    const fadeSections = document.querySelectorAll('.fade-section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    fadeSections.forEach(section => observer.observe(section));
+
+    // Global Background Animation
+    const canvas = document.getElementById("bgCanvas");
+    const ctx = canvas.getContext("2d");
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.radius = Math.random() * 2 + 1;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(0, 200, 83, 0.7)";
+        ctx.fill();
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+        this.draw();
+      }
+    }
+
+    function initParticles() {
+      particles = [];
+      for (let i = 0; i < 120; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => p.update());
+      requestAnimationFrame(animate);
+    }
+
+    initParticles();
+    animate();
+
+    // Pricing Section Canvas Animation
+    const pricingCanvas = document.querySelector(".pricingCanvas");
+    const pricingCtx = pricingCanvas.getContext("2d");
+    let pricingParticles = [];
+
+    function resizePricingCanvas() {
+      pricingCanvas.width = pricingCanvas.offsetWidth;
+      pricingCanvas.height = pricingCanvas.offsetHeight;
+    }
+    window.addEventListener("resize", resizePricingCanvas);
+    resizePricingCanvas();
+
+    class PricingParticle {
+      constructor() {
+        this.x = Math.random() * pricingCanvas.width;
+        this.y = Math.random() * pricingCanvas.height;
+        this.radius = Math.random() * 2 + 1;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
+      }
+      draw() {
+        pricingCtx.beginPath();
+        pricingCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        pricingCtx.fillStyle = "rgba(0, 200, 83, 0.5)";
+        pricingCtx.fill();
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > pricingCanvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > pricingCanvas.height) this.speedY *= -1;
+        this.draw();
+      }
+    }
+
+    function initPricingParticles() {
+      pricingParticles = [];
+      for (let i = 0; i < 80; i++) {
+        pricingParticles.push(new PricingParticle());
+      }
+    }
+
+    function animatePricing() {
+      pricingCtx.clearRect(0, 0, pricingCanvas.width, pricingCanvas.height);
+      pricingParticles.forEach(p => p.update());
+      requestAnimationFrame(animatePricing);
+    }
+
+    initPricingParticles();
+    animatePricing();
+
+    // Typewriter Effect for tagline
+    const words = ["bookings", "orders", "registrations", "feedback"];
+    let i = 0;
+    let j = 0;
+    let currentWord = "";
+    let isDeleting = false;
+    const speed = 120;
+
+    function typeEffect() {
+      const changingEl = document.querySelector(".changing");
+      if (!changingEl) return;
+
+      if (i < words.length) {
+        if (!isDeleting && j <= words[i].length) {
+          currentWord = words[i].substring(0, j++);
+          changingEl.textContent = currentWord;
+        } else if (isDeleting && j >= 0) {
+          currentWord = words[i].substring(0, j--);
+          changingEl.textContent = currentWord;
+        }
+
+        if (j === words[i].length + 1 && !isDeleting) {
+          isDeleting = true;
+          setTimeout(typeEffect, 1000);
+          return;
+        } else if (j < 0 && isDeleting) {
+          isDeleting = false;
+          i++;
+          if (i === words.length) i = 0;
+        }
+      }
+      setTimeout(typeEffect, isDeleting ? speed / 2 : speed);
+    }
+
+    typeEffect();
+  </script>
+</body>
+</html>
