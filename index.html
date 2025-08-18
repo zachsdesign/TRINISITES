@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -19,15 +19,14 @@
       position: relative;
     }
 
-    /* Global background canvas */
-    #bgCanvas {
+    /* New Tech Background Canvas */
+    #techBackground {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       z-index: -1;
-      background: #fff;
     }
 
     header {
@@ -54,41 +53,39 @@
     }
 
     /* Tagline styling */
-   /* Tagline styling */
-.tagline {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;      /* stack text then logo */
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
+    .tagline {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
 
-.tagline-logo {
-  width: 320px;                 /* slightly larger looks nice under text */
-  height: auto;
-  margin-top: 50px;
+    .tagline-logo {
+      width: 320px;
+      height: auto;
+      margin-top: 40px;
+    }
 
-}
+    .tagline h2 {
+      font-size: 1.5rem;
+      font-weight: normal;
+      color: #000;
+      text-align: center;
+      margin-top: 40px;
+      min-height: 3rem; /* keeps height fixed so WhatsForm logo doesn’t move */
+    }
 
-.tagline h2 {
-  font-size: 2.3rem;
-  font-weight: normal;
-  color: #000;
-  text-align: center;
-    margin-top: 50px;
-}
-
-.tagline .fixed { font-weight: bold; color: #000; }
-.tagline .changing {
-  font-weight: bold;
-  color: #00c853;
-  border-right: 2px solid #00c853;
-  padding: 0 4px;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
+    .tagline .fixed { font-weight: bold; color: #000; }
+    .tagline .changing {
+      font-weight: bold;
+      color: #00c853;
+      border-right: 2px solid #00c853;
+      padding: 0 4px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
 
     section {
       text-align: center;
@@ -135,26 +132,12 @@
       transform: scale(1.05);
     }
 
-    /* Pricing Section with its own background animation */
+    /* Pricing Section */
     .pricing {
       position: relative;
       overflow: hidden;
       padding: 80px 20px;
       background: transparent;
-    }
-
-    .pricingCanvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-    }
-
-    .pricing h2, .plans {
-      position: relative;
-      z-index: 1;
     }
 
     .pricing h2 {
@@ -224,65 +207,65 @@
 </head>
 <body>
  
-  <!-- Global Background Canvas -->
-  <canvas id="bgCanvas"></canvas>
+  <!-- New Tech Background Canvas -->
+  <canvas id="techBackground"></canvas>
 
- <header class="fade-section">
-  <img src="TRINISITES.png" alt="TriniSites Logo">
-  <h1>Turn your viewers into buyers</h1>
+  <header class="fade-section">
+    <img src="TRINISITES.png" alt="TriniSites Logo">
+    <h1>Turn your viewers into buyers</h1>
 
-  <!-- Tagline with typewriter text, logo below -->
-  <div class="tagline">
-    <h2>
-      <span class="fixed">Get</span>
-      <span class="changing"></span>
-      <span class="fixed">on WhatsApp</span>
-    </h2>
-    <img src="whatsform.svg" alt="WhatsForm" class="tagline-logo">
-  </div>
-</header>
-
+    <!-- Tagline with typewriter text, logo below -->
+    <div class="tagline">
+      <h2>
+        <span class="fixed">Get</span>
+        <span class="changing"></span>
+        <span class="fixed">on WhatsApp</span>
+      </h2>
+      <img src="whatsform.svg" alt="WhatsForm" class="tagline-logo">
+    </div>
+  </header>
 
   <section class="fade-section">
-  <h2>Demo</h2>
-  <video id="demoVideo" controls playsinline>
-    <source src="Demo.mp4" type="video/mp4">
-  </video>
-  <br>
-  <a href="https://ceramiccoating.site/" target="_blank">Test Demo Site</a>
-</section>
-
+    <h2>Demo</h2>
+    <video id="demoVideo" controls playsinline>
+      <source src="Demo.mp4" type="video/mp4">
+    </video>
+    <br>
+    <a href="https://ceramiccoating.site/" target="_blank">Test Demo Site</a>
+  </section>
 
   <section class="pricing fade-section" id="pricing">
-    <!-- Pricing Background Canvas -->
-    <canvas class="pricingCanvas"></canvas>
-
-    <h2>7 day FREE TRIAL <br><small style="font-size:0.8rem;">USD</small></h2>
+    <h2>7 day FREE TRIAL</h2>
+    <p>TTD</p>
     <div class="plans">
       <div class="plan">
         <h3>Starter Plan</h3>
         <ul>
           <li>Customizable WhatsApp form</li>
+          <li>WhatsApp auto replies</li>
           <li>Custom link (form.trinisites.com/YourBusiness)</li>
+          <li>Unlimited WhatsApp bookings & orders</li>
           <li>Services & Booking calendar</li>
-          <li>Products & Your logo</li>
-          <li>Payment portal (Cash / PayPal)</li>
+          <li>Email notifications</li>
         </ul>
-        <p><strong>$29 / month</strong></p>
+        <p><strong>$199 / month</strong></p>
         <a href="starterplan.html">Get Started</a>
       </div>
 
       <div class="plan">
         <h3>Business Plan</h3>
         <ul>
-          <li>Everything in Starter Plan</li>
-          <li>Domain name (yourbusiness.com)</li>
-          <li>Designed one-page website</li>
-          <li>Unlimited hosting & backups</li>
+          <li>EVERYTHING in Starter Plan</li>
+          <li>Domain Name (yourbusiness.com)</li>
+          <li>Custom Designed One-Page Website</li>
+          <li>WhatsApp form</li>
+          <li>Unlimited Hosting & Backups</li>
           <li>Google Maps & Social Media links</li>
-          <li>About info section</li>
+          <li>Upload Products</li>
+          <li>Store management app</li>
+          <li>Accept Card Payments Online</li>
         </ul>
-        <p><strong>$39 / month</strong></p>
+        <p><strong>$299 / month</strong></p>
         <a href="businessplan.html">Get Started</a>
       </div>
     </div>
@@ -310,113 +293,9 @@
 
     fadeSections.forEach(section => observer.observe(section));
 
-    // Global Background Animation
-    const canvas = document.getElementById("bgCanvas");
-    const ctx = canvas.getContext("2d");
-    let particles = [];
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.radius = Math.random() * 2 + 1;
-        this.speedX = (Math.random() - 0.5) * 0.5;
-        this.speedY = (Math.random() - 0.5) * 0.5;
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(0, 200, 83, 0.7)";
-        ctx.fill();
-      }
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-        this.draw();
-      }
-    }
-
-    function initParticles() {
-      particles = [];
-      for (let i = 0; i < 120; i++) {
-        particles.push(new Particle());
-      }
-    }
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => p.update());
-      requestAnimationFrame(animate);
-    }
-
-    initParticles();
-    animate();
-
-    // Pricing Section Canvas Animation
-    const pricingCanvas = document.querySelector(".pricingCanvas");
-    const pricingCtx = pricingCanvas.getContext("2d");
-    let pricingParticles = [];
-
-    function resizePricingCanvas() {
-      pricingCanvas.width = pricingCanvas.offsetWidth;
-      pricingCanvas.height = pricingCanvas.offsetHeight;
-    }
-    window.addEventListener("resize", resizePricingCanvas);
-    resizePricingCanvas();
-
-    class PricingParticle {
-      constructor() {
-        this.x = Math.random() * pricingCanvas.width;
-        this.y = Math.random() * pricingCanvas.height;
-        this.radius = Math.random() * 2 + 1;
-        this.speedX = (Math.random() - 0.5) * 0.5;
-        this.speedY = (Math.random() - 0.5) * 0.5;
-      }
-      draw() {
-        pricingCtx.beginPath();
-        pricingCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        pricingCtx.fillStyle = "rgba(0, 200, 83, 0.5)";
-        pricingCtx.fill();
-      }
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x < 0 || this.x > pricingCanvas.width) this.speedX *= -1;
-        if (this.y < 0 || this.y > pricingCanvas.height) this.speedY *= -1;
-        this.draw();
-      }
-    }
-
-    function initPricingParticles() {
-      pricingParticles = [];
-      for (let i = 0; i < 80; i++) {
-        pricingParticles.push(new PricingParticle());
-      }
-    }
-
-    function animatePricing() {
-      pricingCtx.clearRect(0, 0, pricingCanvas.width, pricingCanvas.height);
-      pricingParticles.forEach(p => p.update());
-      requestAnimationFrame(animatePricing);
-    }
-
-    initPricingParticles();
-    animatePricing();
-
-    // Typewriter Effect for tagline
+    // Typewriter Effect
     const words = ["bookings", "orders", "registrations", "feedback"];
-    let i = 0;
-    let j = 0;
-    let currentWord = "";
+    let i = 0, j = 0;
     let isDeleting = false;
     const speed = 120;
 
@@ -426,11 +305,9 @@
 
       if (i < words.length) {
         if (!isDeleting && j <= words[i].length) {
-          currentWord = words[i].substring(0, j++);
-          changingEl.textContent = currentWord;
+          changingEl.textContent = words[i].substring(0, j++);
         } else if (isDeleting && j >= 0) {
-          currentWord = words[i].substring(0, j--);
-          changingEl.textContent = currentWord;
+          changingEl.textContent = words[i].substring(0, j--);
         }
 
         if (j === words[i].length + 1 && !isDeleting) {
@@ -447,6 +324,70 @@
     }
 
     typeEffect();
+
+    // Tech Background Animation
+    const canvas = document.getElementById("techBackground");
+    const ctx = canvas.getContext("2d");
+    let width, height;
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    const nodes = [];
+    for (let x = 0; x < width; x += 120) {
+      for (let y = 0; y < height; y += 120) {
+        nodes.push({
+          x: x + Math.random() * 40 - 20,
+          y: y + Math.random() * 40 - 20,
+          vx: Math.random() * 0.5 - 0.25,
+          vy: Math.random() * 0.5 - 0.25,
+        });
+      }
+    }
+
+    function draw() {
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, width, height);
+
+      // Lines
+      ctx.strokeStyle = "rgba(0,200,0,0.4)";
+      ctx.lineWidth = 1;
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 180) {
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Nodes
+      nodes.forEach(node => {
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, 3, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(0,200,0,0.9)";
+        ctx.fill();
+
+        node.x += node.vx;
+        node.y += node.vy;
+
+        if (node.x < 0 || node.x > width) node.vx *= -1;
+        if (node.y < 0 || node.y > height) node.vy *= -1;
+      });
+
+      requestAnimationFrame(draw);
+    }
+
+    draw();
   </script>
 </body>
 </html>
